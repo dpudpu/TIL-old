@@ -1,4 +1,4 @@
-package chap09;
+package algorithm.doit.examples.chap09;
 import java.util.Scanner;
 import java.util.Comparator;
 // 연결 리스트 클래스 AryLinkedList<E>의 사용 예
