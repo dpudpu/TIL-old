@@ -84,7 +84,7 @@ public class LinkedList<E> {
                 removeFirst();
             else{
                 Node<E> ptr = head;
-                while(ptr!=p){
+                while(ptr.next!=p){
                     ptr=ptr.next;
                     if(ptr==null) return; // p가 리스트에 없다.
                 }
@@ -126,5 +126,26 @@ public class LinkedList<E> {
             System.out.println(ptr.data);
             ptr=ptr.next;
         }
+    }
+
+    // 연습 9-1
+    // 서로 같은 노드를 찾아 가장 앞쪽의 노드를 남기고 모두 삭제.
+    // <? super E> - 이 생성자에 적용할 수 있는 모든 Comparator를 받을 수 있다(lower bound)
+    void purge(Comparator<? super E> c){
+        Node<E> ptr = head;
+
+        while(ptr!=null){
+            Node<E> ptr2 = ptr.next;
+            while(ptr2!=null){
+                if(c.compare(ptr.data,ptr2.data)==0){
+                    System.out.println("----------same--------");
+                    remove(ptr2);
+                }
+                ptr2=ptr2.next;
+            }
+            ptr=ptr.next;
+        }
+        crnt=head;
+
     }
 }
