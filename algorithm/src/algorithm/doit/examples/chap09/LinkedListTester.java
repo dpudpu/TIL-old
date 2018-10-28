@@ -67,6 +67,7 @@ public class LinkedListTester {
         PRINT_CRNT("선택 노드를 출력"),
         DUMP("모든 노드를 출력"),
         PURGE("purge"),
+        RETRIEVE("retrieve"),
         TERMINATE("종료");
 
 
@@ -177,6 +178,10 @@ public class LinkedListTester {
                     break;
                 case PURGE:
                     list.purge(Data.NO_ORDER);
+                    break;
+                case RETRIEVE:
+                    System.out.print("몇번째 ? ");
+                    System.out.println(list.retrieve(stdIn.nextInt()));
                     break;
             }
         } while (menu != Menu.TERMINATE);

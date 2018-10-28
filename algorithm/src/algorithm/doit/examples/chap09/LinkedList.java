@@ -146,6 +146,20 @@ public class LinkedList<E> {
             ptr=ptr.next;
         }
         crnt=head;
-
     }
+
+    // 9.2 머리부터 n개 뒤의 노드에 대한 참조를 반환하는 메소드
+    public E retrieve(int n){
+        Node<E> ptr = head;
+        while(n>=0 && ptr!=null){
+            if(n--==0) {
+                crnt = ptr;
+                return ptr.data;
+            }
+            ptr=ptr.next;
+        }
+        return null;
+    }
+
+
 }
