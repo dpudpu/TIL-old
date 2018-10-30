@@ -1,10 +1,10 @@
 package algorithm.doit.examples.chap09;
 
-import java.util.Scanner;
 import java.util.Comparator;
+import java.util.Scanner;
 // 연결 리스트 클래스 LinkedList<E>의 사용 예
 
-public class LinkedListTester {
+public class CircleLinkedListTester {
     static Scanner stdIn = new Scanner(System.in);
 
     // 데이터 (회원번호+이름)

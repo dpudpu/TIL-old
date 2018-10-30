@@ -2,7 +2,7 @@ package algorithm.doit.examples.chap09;
 
 import java.util.Comparator;
 
-public class LinkedList<E> {
+public class CircleLinkedList<E> {
     //노드
 
     class Node<E>{
@@ -19,20 +19,20 @@ public class LinkedList<E> {
     private Node<E> head; // 머리노드
     private Node<E> crnt; //선택 노드
 
-    public LinkedList(){
+    public CircleLinkedList(){
         head = crnt = null;
     }
 
     public E search(E obj, Comparator<? super E> c){
         Node<E> ptr = head;
 
-        while(ptr != null){
+        do{
             if(c.compare(obj, ptr.data)==0){
                 crnt = ptr;
                 return ptr.data;
             }
             ptr=ptr.next;
-        }
+        }while(ptr!=head);
         return null;
     }
 
@@ -46,9 +46,10 @@ public class LinkedList<E> {
             addFirst(obj);
         else{
             Node<E> ptr = head;
-            while(ptr.next != null)
+            do{
                 ptr=ptr.next;
-            ptr.next = crnt= new Node<E>(obj, null);
+            }while(ptr.next != head);
+            ptr.next = crnt= new Node<E>(obj, head);
 
         }
     }
@@ -67,10 +68,10 @@ public class LinkedList<E> {
                 Node<E> ptr = head; // 스캔 중인 노드
                 Node<E> pre = head; //스캔 중인 노드의 앞쪽 노드
 
-                while(ptr.next!=null){
+                do{
                     pre = ptr;
                     ptr = ptr.next;
-                }
+                }while(ptr.next!=head);
                 pre.next=null;
                 crnt=pre;
             }
@@ -122,10 +123,10 @@ public class LinkedList<E> {
 
     public void dump(){
         Node<E> ptr = head;
-        while(ptr!=null){
+        do{
             System.out.println(ptr.data);
             ptr=ptr.next;
-        }
+        }while(ptr!=head);
     }
 
     // 연습 9-1
@@ -134,29 +135,31 @@ public class LinkedList<E> {
     void purge(Comparator<? super E> c){
         Node<E> ptr = head;
 
-        while(ptr!=null){
+        do{
             Node<E> ptr2 = ptr.next;
-            while(ptr2!=null){
+            do{
                 if(c.compare(ptr.data,ptr2.data)==0){
                     System.out.println("----------same--------");
                     remove(ptr2);
                 }
                 ptr2=ptr2.next;
-            }
+            }while(ptr2!=head);
             ptr=ptr.next;
-        }
+        }while(ptr!=head);
         crnt=head;
     }
 
     // 9.2 머리부터 n개 뒤의 노드에 대한 참조를 반환하는 메소드
     public E retrieve(int n){
         Node<E> ptr = head;
-        while(n>=0 && ptr!=null){
+        while(n>=0 ){
             if(n--==0) {
                 crnt = ptr;
                 return ptr.data;
             }
             ptr=ptr.next;
+            if(ptr==head)
+                break;
         }
         return null;
     }
