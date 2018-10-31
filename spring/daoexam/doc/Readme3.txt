@@ -1,6 +1,6 @@
 Spring JUnit Test
 
-1. pom.xml ÆÄÀÏ¿¡ ´ÙÀ½À» Ãß°¡
+1. pom.xml íŒŒì¼ì— ë‹¤ìŒì„ ì¶”ê°€
 
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -15,9 +15,9 @@ Spring JUnit Test
             <scope>test</scope>
         </dependency>
 
-2. DataSourceºÎºÐÀ» ´ÙÀ½°ú °°ÀÌ ¼öÁ¤
+2. DataSourceë¶€ë¶„ì„ ë‹¤ìŒê³¼ ê°™ì´ ìˆ˜ì •
 
-DataSource°´Ã¼°¡ ¸¸µé¾îÁö°í ÀÚµ¿À¸·Î schema.sql À» ½ÇÇàÇÑ´Ù.
+DataSourceê°ì²´ê°€ ë§Œë“¤ì–´ì§€ê³  ìžë™ìœ¼ë¡œ schema.sql ì„ ì‹¤í–‰í•œë‹¤.
 
     @Bean
     public DataSource dataSource() {
@@ -37,27 +37,27 @@ DataSource°´Ã¼°¡ ¸¸µé¾îÁö°í ÀÚµ¿À¸·Î schema.sql À» ½ÇÇàÇÑ´Ù.
         return databasePopulator;
     }
 
-3. Test Å¬·¡½º¸¦ ÀÛ¼º
+3. Test í´ëž˜ìŠ¤ë¥¼ ìž‘ì„±
 
 Controller --> Service --> Dao
 
-ServiceÀÇ ¸Þ¼Òµå¸¦ Å×½ºÆ®.
+Serviceì˜ ë©”ì†Œë“œë¥¼ í…ŒìŠ¤íŠ¸.
 
-* ´ÜÀ§ Å×½ºÆ®°¡ ¹«¾ùÀÌÁö?
-* ÅëÇÕ Å×½ºÆ®°¡ ¹«¾ùÀÎÁö?
-* JUnit ÀÌ ¹«¾ùÀÌÁö?
-* Mock ÀÌ ¹«¾ùÀÌÁö?
-* °ªÀÇ °ËÁõÀº ¾î¶»°Ô ÇÒ±î?
+* ë‹¨ìœ„ í…ŒìŠ¤íŠ¸ê°€ ë¬´ì—‡ì´ì§€?
+* í†µí•© í…ŒìŠ¤íŠ¸ê°€ ë¬´ì—‡ì¸ì§€?
+* JUnit ì´ ë¬´ì—‡ì´ì§€?
+* Mock ì´ ë¬´ì—‡ì´ì§€?
+* ê°’ì˜ ê²€ì¦ì€ ì–´ë–»ê²Œ í• ê¹Œ?
 
-test/java/ ÆÐÅ°Áö¸í / Å¬·¡½º¸¦ ÀÛ¼º
+test/java/ íŒ¨í‚¤ì§€ëª… / í´ëž˜ìŠ¤ë¥¼ ìž‘ì„±
 
 
-@RunWith ´Â JUnit ÀÌ Á¦°øÇÏ´Â ¾Ö³ëÅ×ÀÌ¼ÇÀÎµ¥, È®ÀåÁ¡À» Á¦°øÇÑ´Ù.
+@RunWith ëŠ” JUnit ì´ ì œê³µí•˜ëŠ” ì• ë…¸í…Œì´ì…˜ì¸ë°, í™•ìž¥ì ì„ ì œê³µí•œë‹¤.
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(classes = ApplicationConfig.class)
-À§ÀÇ 2ÁÙÀº ½ºÇÁ¸µÀÌ JUnitÀÇ ±â´ÉÀ» È®ÀåÇÏ¿© ApplicationConfig.class¸¦
-ÀÐ¾îµé¿© ³»ºÎÀûÀ¸·Î ApplicationContext¸¦ »ý¼ºÇÑ´Ù.
+ìœ„ì˜ 2ì¤„ì€ ìŠ¤í”„ë§ì´ JUnitì˜ ê¸°ëŠ¥ì„ í™•ìž¥í•˜ì—¬ ApplicationConfig.classë¥¼
+ì½ì–´ë“¤ì—¬ ë‚´ë¶€ì ìœ¼ë¡œ ApplicationContextë¥¼ ìƒì„±í•œë‹¤.
 
 
 package examples.daoexam.dao;
