@@ -38,3 +38,7 @@ public class DBConfig {
  username=아이디
  password=비번
 ```
+
+## 필독 
+에러가 난다면 username을 확인해봐야한다. 
+username은 윈도우 계정명과 겹쳐서 root가 아닌 윈도우 유저명이 넘어가서 에러가 났다.
