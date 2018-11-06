@@ -38,7 +38,7 @@
 
 
 
-1. support해주는 클래스들을 이용해서 Java Config에서 ApplicationContext를 읽어들인다. 
+2. support해주는 클래스들을 이용해서 Java Config에서 ApplicationContext를 읽어들인다. 
 
 ```xml
 <param-value>    org.springframework.web.context.support.AnnotationConfigWebApplicationContext
