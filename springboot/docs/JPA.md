@@ -1,20 +1,46 @@
+
+
 컴파일 전에 @을 보고 자동으로 getter, setter 를 추가해준다.
 
-dao의 sql은 객체지향이 아니다.  
+DAO의 sql은 객체지향이 아니다.  
 
-sql과 내가 만든 객체를 관계 지어줘야하는데 sql중심적이다. 서로 다른 방식의 사고가 충돌.
+sql과 내가 만든 객체를 관계 지어줘야 하는데 sql중심적이다. 
+
+서로 다른 방식의 사고가 충돌. 그래서 Hibernate가 나왔다.
 
 
-
-
-
-Hibernate(ORM)  ———> JPA ——>Spring DATA JPA
 
 ### Hibernate (ORM) Object-relational mapping
+
+Hibernate(ORM)  ———> JPA ——>Spring DATA JPA
 
 표준이 만들어져서 JPA가 나왔다. Hibernate가 JPA(Inteface)를 구현해준다.
 
 데이터를 저장하는데 꼭 같은 db만을 사용하는게 아니다. ---> Spring DATA JPA	
+
+​       
+
+## JPA(Java Persistent API)
+
+ORM 표준 기술로 Hibernate, OpenJPA, EclipseLink, TopLink Essentials과 같은 구현체가 있고 이에 표준 인터페이스가 바로 JPA이다.
+
+**왜 JPA를 학습해야 하는가?**
+
+- 도메인 주도 개발이 가능합니다.
+- 애플리케이션의 코드가 SQL 데이터베이스 관련 코드에 잠식 당하는 것을 방지하고 도메인 기반의 프로그래밍으로 비즈니스 로직을 구현하는데 집중할 수 있습니다.
+- 그리고 개발 생산성에 좋으며, 데이터베이스에 독립적인 프로그래밍이 가능하고, 타입 세이프한 쿼리 작성 그리고 Persistent Context가 제공하는 캐시 기능으로 성능 최적화까지 가능합니다.
+- 이러한 여러 장점을 지닌 JPA의 한가지 단점. 높은 학습 비용
+
+
+
+의존성 추가가 필요하다.
+
+```xml
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
 
 
 
