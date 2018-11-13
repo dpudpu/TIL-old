@@ -1,9 +1,9 @@
 package algorithm.backjoon.hash;
 
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 
 public class Quiz5052 {
 
@@ -34,7 +34,7 @@ public class Quiz5052 {
 
             String[] nums = new String[n];
             for (int k = 0; k < n; k++) {
-               nums[k] = br.readLine();
+                nums[k] = br.readLine();
             }
             for(String s: nums)
                 chainHash.add(s);
@@ -61,7 +61,7 @@ class ChainHash {
 
         @Override
         public int hashCode() {
-            return Integer.parseInt(number.split("")[0]);
+            return number.charAt(0)-'0';
         }
     }
 
@@ -70,11 +70,11 @@ class ChainHash {
     }
 
     public boolean search(String number){
-        int hash = Integer.parseInt(number.split("")[0]);
+        // 아스키코드 때문에 -'0'
+        int hash = number.charAt(0)-'0';
         Node p = table[hash];
         while (p!=null){
-            if(p.getnumber().matches(".*^" + number + ".*") &&
-                    number.length()!=p.getnumber().length()){
+            if(number.length()!=p.getnumber().length() && p.getnumber().startsWith(number)){
                 return true;
             }
             p=p.next;
@@ -83,7 +83,7 @@ class ChainHash {
     }
 
     public void add(String number) {
-        int hash = Integer.parseInt(number.split("")[0]);
+        int hash = number.charAt(0)-'0';
         Node p = table[hash];
         while (p != null) {
             if (p.getnumber().equals(number))        // 이 키 값은 이미 등록됨
