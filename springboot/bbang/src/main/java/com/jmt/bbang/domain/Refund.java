@@ -14,6 +14,8 @@ public class Refund {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(length = 50, nullable = false)
+    private String status;
     @Lob
     private String reason;
     private Date regdate;

@@ -38,6 +38,9 @@ public class Member {
     @Column(name = "point")
     private int point=0;
 
+    @OneToMany(mappedBy = "member")
+    private Set<Cart> cart;
+
     @ManyToMany
     @JoinTable(name = "member_coupon",
             joinColumns = @JoinColumn(name = "member_id", referencedColumnName = "id") ,
@@ -50,12 +53,4 @@ public class Member {
             joinColumns = @JoinColumn(name = "member_id", referencedColumnName = "id") ,
             inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id") )
     private Set<Product> wishlist;
-
-    @ManyToMany // 구매 개수 추가
-    @JoinTable(name = "cart",
-            joinColumns = @JoinColumn(name = "member_id", referencedColumnName = "id") ,
-            inverseJoinColumns = @JoinColumn(name = "product_id", referencedColumnName = "id") )
-    private Set<Product> cart;
-
-
 }

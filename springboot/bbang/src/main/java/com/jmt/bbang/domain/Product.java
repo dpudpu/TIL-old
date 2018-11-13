@@ -19,11 +19,16 @@ public class Product {
     private String productName;
     @Column(length = 255, nullable = false)
     private String nutrition;
-    private int quantity;
     private int price;
     private int pointRate;
     private boolean cutting;
     private Date regdate;
+    @Column(name = "hit")
+    private int hit=0;
+    private int quantity;
+    @Column(name = "total_sales")
+    private int totalSales=0;
+
 
     // 나중에 구매목록에서 상품 링크를 클릭했을 경우 정보를 볼수있으려면 삭제해도
     // 게시판에서만 안보일뿐 상품 정보는 보여야하므로 추가해줌.
@@ -37,7 +42,10 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToMany(mappedBy = "product")
-    private Set<PurchaseProduct> purchaseProducts;
+    @OneToOne(mappedBy = "product")
+    private PurchaseProduct purchaseProducts;
+
+    @OneToMany(mappedBy="product")
+    private Set<Cart> carts;
 
 }
