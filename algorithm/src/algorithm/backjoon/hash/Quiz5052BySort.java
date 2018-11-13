@@ -17,7 +17,6 @@ public class Quiz5052BySort {
                 numbers[i] =br.readLine();
 
             Arrays.sort(numbers);
-
             boolean check = true;
             for (int i = 1; i < n && check; i++)
                 check = !numbers[i].startsWith(numbers[i - 1]);
