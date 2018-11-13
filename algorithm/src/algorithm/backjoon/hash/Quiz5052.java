@@ -1,26 +1,24 @@
 package algorithm.backjoon.hash;
 
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Quiz5052 {
-    
 
-    public static void check(String str[], int n){
+
+    public static void check(ChainHash chainHash, String nums[]) {
         boolean check = false;
-        for (int str1 = 0; str1 < n; str1++) {
-            for (int str2 = str1+1; str2 < n; str2++) {
-                if ((str[str1].matches(".*^" + str[str2] + ".*"))
-                        || (str[str2].matches(".*^" + str[str1] + ".*"))) {
-                    check=true;
-                }
+
+        for(String s : nums) {
+            check = chainHash.search(s);
+            if(check==true) {
+                System.out.println("NO");
+                return;
             }
         }
-        if (check==true)
-            System.out.println("NO");
-        else
-            System.out.println("YES");
+        System.out.println("YES");
 
     }
 
@@ -32,11 +30,68 @@ public class Quiz5052 {
         for (int i = 0; i < t; i++) {
             // 숫자 개수
             int n = Integer.parseInt(br.readLine());
-            String str[] = new String[n];
+            ChainHash chainHash = new ChainHash();
+
+            String[] nums = new String[n];
             for (int k = 0; k < n; k++) {
-                str[k] = br.readLine();
+               nums[k] = br.readLine();
             }
-            check(str, n);
+            for(String s: nums)
+                chainHash.add(s);
+            check(chainHash, nums);
         }
+    }
+}
+
+class ChainHash {
+    private Node[] table;
+
+    class Node {
+        private String number;
+        private Node next;
+
+        public Node(String number,Node next) {
+            this.number = number;
+            this.next = next;
+        }
+
+        public String getnumber() {
+            return number;
+        }
+
+        @Override
+        public int hashCode() {
+            return Integer.parseInt(number.split("")[0]);
+        }
+    }
+
+    public ChainHash() {
+        table = new Node[10];
+    }
+
+    public boolean search(String number){
+        int hash = Integer.parseInt(number.split("")[0]);
+        Node p = table[hash];
+        while (p!=null){
+            if(p.getnumber().matches(".*^" + number + ".*") &&
+                    number.length()!=p.getnumber().length()){
+                return true;
+            }
+            p=p.next;
+        }
+        return false;
+    }
+
+    public void add(String number) {
+        int hash = Integer.parseInt(number.split("")[0]);
+        Node p = table[hash];
+        while (p != null) {
+            if (p.getnumber().equals(number))        // 이 키 값은 이미 등록됨
+                return;
+            p = p.next;                        // 다음 노드에 주목
+        }
+        Node temp = new Node(number, table[hash]);
+        table[hash] = temp;                    // 노드를 삽입
+        return;
     }
 }
