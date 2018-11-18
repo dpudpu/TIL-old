@@ -4,14 +4,14 @@
 
 ## JPA란? 
 
-관계형 데이터베이스를 관리를 표현하는 자바 API다.      
+  관계형 데이터베이스를 관리를 표현하는 자바 API다.      
 
 ​        
 ​            
 
 ## JPA 탄생까지
 
-  객체 모델과 관계형 데이터베이스 모델은 지향하는 패러다임이 서로 다르다.  SQL과 개발자가 만든 객체를 관계 지어줘야 하는데 SQL 중심적으로 코드를 하게 되므로 객체지향과는 거리가 멀어져 서로 다른 방식의 사고가 충돌된다. 그래서 **Hibernate**가 나왔다.
+ 객체 모델과 관계형 데이터베이스 모델은 지향하는 패러다임이 서로 다르다.  SQL과 개발자가 만든 객체를 관계 지어줘야 하는데 SQL 중심적으로 코드를 하게 되므로 객체지향과는 거리가 멀어져 서로 다른 방식의 사고가 충돌된다. 그래서 **Hibernate**가 나왔다.
 
 #### Hibernate(ORM)  ———> JPA ——>Spring DATA JPA
 
@@ -35,3 +35,14 @@ ORM 기술로 Hibernate, OpenJPA, EclipseLink 과 같은 프레임워크들이 �
 - 데이터 접근 추상화와 벤더 독립성
   - 하나의 데이터베이스에 종속적이지 않다.
 - 표준
+      
+
+사용을 위해서는 의존성 추가가 필요하다.
+
+```xml
+<dependency>
+   <groupId>org.springframework.boot</groupId>
+   <artifactId>spring-boot-starter-data-jpa</artifactId>
+</dependency>
+```
+
