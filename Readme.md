@@ -2,8 +2,8 @@ TIL
 ====================
 Today I Learned. Daily commit.
 ------------------------------
->* [Java](https://github.com/dpudpu/TIL/tree/master/algorithm)
->* [Algorith](https://github.com/dpudpu/TIL/tree/master/java)
+>* [Java](https://github.com/dpudpu/TIL/tree/master/java)
+>* [Algorith](https://github.com/dpudpu/TIL/tree/master/algorithm)
 >* [regex](https://github.com/dpudpu/TIL/tree/master/regex)
 >* [Spring](https://github.com/dpudpu/TIL/tree/master/spring)
 >* [SpringBoot](https://github.com/dpudpu/TIL/tree/master/springboot)
