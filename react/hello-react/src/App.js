@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import EventPractice from './EventPractice';
 
 class App extends Component {
-  render() {
+  render(){
+    // const text = "Hello"
+    // const condition = true;
+    // const style = {
+    //   backgroundColor:'red',
+    //   border: '1x solid black',
+    //   height:Math.round(Math.random()*300)+50,
+    //   width:Math.round(Math.random()*300)+50,
+    //   WebkitTransition:'all',
+    //   MozTransition: 'all',
+    //   msTransition: 'all'
+    // };
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <EventPractice/>
     );
   }
 }
