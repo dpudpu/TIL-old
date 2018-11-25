@@ -26,7 +26,7 @@ class EventPractice extends Component {
     }
     handleKeyPress = (e) => {
         if(e.key==='Enter'){
-            this.handleClick();
+         this.handleClick();
         }
     }
     render() {

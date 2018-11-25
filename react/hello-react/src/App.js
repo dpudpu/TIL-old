@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import EventPractice from './EventPractice';
+import ScrollBox from './ScrollBox';
 
 class App extends Component {
   render(){
@@ -16,7 +16,11 @@ class App extends Component {
     //   msTransition: 'all'
     // };
     return (
-      <EventPractice/>
+      <div>
+        <ScrollBox ref={(ref) => this.ScrollBox=ref}/>
+        <button onClick={()=> this.ScrollBox.ScrollToBottom()}>
+        맨 밑으로</button>
+      </div>
     );
   }
 }
