@@ -5,8 +5,8 @@ public class ThreadExam02 {
         Runnable r2 = new MyThread02("%");
         Runnable r3 = new MyThread02("#");
         Thread t1 = new Thread(r1);
-        Thread t2 = new Thread(r1);
-        Thread t3 = new Thread(r1);
+        Thread t2 = new Thread(r2);
+        Thread t3 = new Thread(r3);
         t1.start();
         t2.start();
         t3.start();
@@ -29,8 +29,5 @@ class MyThread02 implements Runnable{
             }catch(InterruptedException ie){}
         }
     }
-
-
-
 }
 

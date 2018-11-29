@@ -5,7 +5,7 @@ import java.io.PrintWriter;
 // class 정보들을 읽어들이고
 
 @WebServlet("/my")
-public class MyServlet extends HttpServlet {
+public class  MyServlet extends HttpServlet {
 
     @Override
     public void doGet(Request request, Response response) {
