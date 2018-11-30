@@ -1,16 +1,17 @@
-package practice;
+package my.examples.was;
 
 import java.io.*;
 import java.net.Socket;
 
-public class  Handler extends Thread {
-    Socket socket;
+public class Handler extends Thread{
+    private Socket socket;
+
     public Handler(Socket socket) {
-        this.socket=socket;
+        this.socket = socket;
     }
 
     @Override
-    public void run(){
+    public void run() {
         try {
             InputStream in = socket.getInputStream();
             BufferedReader br = new BufferedReader(new InputStreamReader(in));
@@ -29,7 +30,7 @@ public class  Handler extends Thread {
             socket.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
         }
+
     }
 }
