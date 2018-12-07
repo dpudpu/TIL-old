@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>연습</title>
+</head>
+<body>
+
+    <script>
+    
+        function Prefixer(prefix) {
+         this.prefix = prefix;
+        }
+        
+        //ES5
+        // Solution 1: that = this
+        Prefixer.prototype.prefixArray = function (arr) {
+            var that = this;  // this: Prefixer 생성자 함수의 인스턴스
+            return arr.map(function (x) {
+                return that.prefix + ' ' + x;
+            });
+        };
+        var pre = new Prefixer('Hi');
+        console.log(pre.prefixArray(['Lee', 'Kim']));
+
+
+        //ES6
+        Prefixer.prototype.prefixArray = function(arr){
+            // this 상위 스코프인 prefixArray 메소드 내의 this를 가리킨다.
+            return arr.map(x => `${this.prefix} ${x}`);
+        };
+        const pre2 = new Prefixer(`Hi`);
+        console.log(pre2.prefixArray(['Lee', 'Kim']));
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>연습</title>
+</head>
+<body>
+
+    <script>
+        //ES5
+        var pow = function(x) { return x*x;};
+        console.log(pow(10));
+
+        //ES6
+        const pow2 = x => x*x;
+        console.log(pow2(10));
+
+        // ES5
+        var arr = [1,2,3];
+        var pow = arr.map(function(x){
+            return x*x;
+        });
+        console.log(pow)
+
+        //ES6
+        const arr3 = [1,2,3];
+        const pow3 = arr3.map( x => x * x );
+        console.log(pow3);
+
+    </script>
+
+</body>
+</html>
