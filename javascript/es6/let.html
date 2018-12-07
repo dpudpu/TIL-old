@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>연습</title>
+</head>
+<body>
+
+   hi
+   <script>
+//    console.log(foo); // undefined
+//     var foo = 123;
+//     console.log(foo); // 123
+//     {
+//     var foo = 456;
+//     }
+//     console.log(foo); // 456
+
+//     let foo2 = 123;
+//     {
+//         let foo2 = 456;
+//         let bar = 456;
+//         console.log(foo2); // 456
+//     }
+//     console.log(foo2); // 123
+//     console.log(bar);
+
+
+    var funcs = [];
+
+    // 함수의 배열을 생성하는 for 루프의 i는 for 루프의 코드 블록에서만 유효한 지역 변수이면서 자유 변수이다.
+    for (let i = 0; i < 3; i++) {
+    funcs.push(function () { console.log(i); });
+    }
+
+    // 배열에서 함수를 꺼내어 호출한다
+    for (var j = 0; j < 3; j++) {
+    console.dir(funcs[j]);
+    funcs[j]();
+    }
+   </script>
+
+</body>
+</html>
