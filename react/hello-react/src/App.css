@@ -1,4 +1,10 @@
-.mv-div{
-  background-color: aqua;
-  font-size:15px;
+.box {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
 }
