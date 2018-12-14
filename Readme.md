@@ -7,6 +7,8 @@ Today I Learned. Daily commit.
 >* [regex](https://github.com/dpudpu/TIL/tree/master/regex)
 >* [Spring](https://github.com/dpudpu/TIL/tree/master/spring)
 >* [SpringBoot](https://github.com/dpudpu/TIL/tree/master/springboot)
+>* [react](https://github.com/dpudpu/TIL/tree/master/react)
+>* [javascript](https://github.com/dpudpu/TIL/tree/master/javascript)
 
 ## 공부 할 것들
 
