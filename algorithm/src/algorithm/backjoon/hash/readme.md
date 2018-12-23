@@ -17,12 +17,12 @@
     
     
 ### 정리 
-0. 정렬을 하고 나면 이중 for문을 사용하지 않아도 된다.
-1. 문자열에서 문자 하나만 얻을 때는 
+1. 정렬을 하고 나면 이중 for문을 사용하지 않아도 된다.
+2. 문자열에서 문자 하나만 얻을 때는 
 split(" ")[0] 보다 **charAt(0)** 이 더 빠르다. 
 2760ms -> 1704ms 로 향상
-2. parsInst 속도 많이 잡아먹는다.
-3. startswith가 matches로 비교하는 것보다 아주 조금 더 빨랐다.
+3. parsInst 속도 많이 잡아먹는다.
+4. startswith가 matches로 비교하는 것보다 아주 조금 더 빨랐다.
 
 ```java
 boolean check = true;
