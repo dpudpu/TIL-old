@@ -17,7 +17,7 @@ Today I Learned. Daily commit.
 - 도커
 - 샤딩, 이중화 아키텍처
 - 자바스크립트
-- 리액트
+- 리액트(o)
 - 리눅스
 - 자바 
   - [Comparable / Comparato](http://dev-daddy.tistory.com/23) 차이 (o) 
