@@ -20,6 +20,6 @@ Today I Learned. Daily commit.
 - 리눅스
 - 자바 
   - [Comparable / Comparato](http://dev-daddy.tistory.com/23) 차이 (o) 
-  - Lambda
+  - Lambda (o)
   - 리플렉션
 
