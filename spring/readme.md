@@ -8,7 +8,7 @@ Spring
 >* [스프링MVC(1)](./docs/스프링MVC(1).md)   
 
 
-JPA
+Spring JPA
 ------------------------------
 >* [JPA란?](./docs/JPA%20-%201.%20JPA란%3F.md)
 >* [JPA 영속성관리](./docs/JPA%20-%203.영속성%20관리.md)
