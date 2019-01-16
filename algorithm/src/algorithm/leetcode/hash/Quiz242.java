@@ -18,13 +18,13 @@ public class Quiz242 {
 
 
         for (int i = 0; i < length; i++) {
-            sMap.put(s.charAt(i), sMap.get(s.charAt(i)) == null ? 1 : sMap.get(s.charAt(i)) + 1);
-            sMap.put(t.charAt(i), sMap.get(t.charAt(i)) == null ? -1 : sMap.get(t.charAt(i)) - 1);
+            char sc = s.charAt(i);
+            char tc = t.charAt(i);
+            sMap.put(sc, sMap.get(sc) == null ? 1 : sMap.get(sc) + 1);
+            sMap.put(tc, sMap.get(tc) == null ? -1 : sMap.get(tc) - 1);
         }
 
-
-        Set<Character> keys = sMap.keySet();
-        for (Character key : keys) {
+        for (Character key : sMap.keySet()) {
             if (!sMap.get(key).equals(0))
                 return false;
         }
