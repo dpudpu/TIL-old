@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>로또</title>
+
+    <script>
+        window.onload = function () {
+            let startButton = document.getElementById("start");
+            let findPriceButton = document.getElementById("findPrice");
+            let printNums = document.getElementById("printNums");
+            let printPrice = document.getElementById("printPrice");
+
+            let winNums = new Array();
+
+            startButton.onclick = start;
+
+            function start() {
+                winNums = lottoMachine();
+                findPriceButton.onclick = findPrice;
+                printNums.innerHTML = "로또 당첨 번호는 " + winNums.toString();
+
+            }
+
+            function findPrice() {
+                let count = 0;
+                winNums.sort();
+                let lottoNums;
+
+                w: while (true) {
+                    count++;
+                    lottoNums = buyLotto();
+                    lottoNums.sort();
+                    for (let i = 0; i < 6; i++) {
+                        if (lottoNums[i] != winNums[i])
+                            continue w;
+                    }
+                    break;
+                }
+                printPrice.innerHTML="최종 번호 = "+lottoNums.toString() +"<br>" +count+"회 구매<br>"+count*1000+"원 소모";
+        
+            }
+        }
+
+        const lottoMachine = function () {
+            let lottoNums = new Array();
+            for (let i = 0; i < 6; i++) {
+                let num = (Math.random() * 45 + 1).toFixed(0);
+                if (lottoNums.includes(num))
+                    i--;
+                else
+                    lottoNums[i] = num;
+            }
+            return lottoNums;
+        }
+
+
+
+        const buyLotto = function () {
+            return lottoMachine();
+        }
+    </script>
+</head>
+
+<body>
+    <p id="printNums"></p>
+    <input id="start" type="button" value="당첨번호">
+
+    <p id="printPrice"></p>
+    <input id="findPrice" type="button" value="당첨까지 소요 금액">
+
+
+
+</body>
+
+</html>
