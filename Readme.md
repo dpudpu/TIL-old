@@ -20,3 +20,4 @@ Today I Learned. Daily commit.
 - 자바 
   - [Comparable / Comparato](http://dev-daddy.tistory.com/23) 차이 (o) 
   - Lambda (o)
+- MySQL 실행계획 (튜닝을 하려면 실행계획을 볼 줄 알아야한다.)
