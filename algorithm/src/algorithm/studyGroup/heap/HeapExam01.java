@@ -10,9 +10,9 @@ public class HeapExam01 {
         printNums(nums);
     }
 
-    public static void heapSort(int nums[]){
-        int size = nums.length-1;
-        while(size>=2){
+    public static void heapSort(int nums[]) {
+        int size = nums.length - 1;
+        while (size >= 2) {
             swap(nums, 0, size);
             size--;
             maxHeapify(nums, 0, size);
@@ -27,8 +27,8 @@ public class HeapExam01 {
     }
 
     public static void maxHeapify(int nums[], int i, int size) {
-        int left = i * 2;
-        int right = i * 2 + 1;
+        int left = i == 0 ? 1 : i * 2;
+        int right = i == 0 ? 2 : i * 2 + 1;
         int n = size;
 
         if (left >= n)
@@ -43,10 +43,9 @@ public class HeapExam01 {
         if (nums[left] > nums[right] && nums[left] > nums[i]) {
             swap(nums, left, i);
             maxHeapify(nums, left, size);
-        }
-        else if (nums[left] < nums[right] && nums[right] > nums[i]) {
+        } else if (nums[left] < nums[right] && nums[right] > nums[i]) {
             swap(nums, right, i);
-            maxHeapify(nums,right, size);
+            maxHeapify(nums, right, size);
         }
 
 
