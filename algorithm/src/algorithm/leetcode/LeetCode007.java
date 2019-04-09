@@ -2,30 +2,30 @@ package algorithm.leetcode;
 
 public class LeetCode007 {
     public static int reverse(int x) {
-        if (Integer.MAX_VALUE-1 < x || -Integer.MAX_VALUE > x)
-            return 0;
+        if(x==Integer.MIN_VALUE) return 0;
 
-        int answer = 0;
-        int num=x;
-        int cnt = 1;
-        while(num!=0) {
-            cnt*=10;
-            num /= 10;
-        }
-        cnt/=10;
-        int c=1;
-        while(cnt>0){
-            int n = x/cnt;
-            answer+=n*c;
-            c*=10;
-            x%=cnt;
-            cnt/=10;
+        int reverseNum = 0;
+        boolean isMinus = x < 0 ? true : false;
+        x = Math.abs(x);
+
+        while (x != 0) {
+            if((long)reverseNum*10 + x%10 > Integer.MAX_VALUE)
+                return 0;
+
+            reverseNum = reverseNum*10 + x%10;
+            x/=10;
+
         }
 
-        return answer;
+        return isMinus ? -reverseNum: reverseNum;
     }
 
     public static void main(String[] args) {
-        System.out.println(reverse(1534236469));
+
+        System.out.println(reverse(-2147483641));
+        System.out.println(reverse(1534236463));
+        System.out.println(reverse(123));
+        System.out.println(reverse(120));
+
     }
 }
