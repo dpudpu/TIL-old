@@ -12,9 +12,6 @@ Today I Learned. Daily commit.
 
 ## 공부 할 것들
 
-
-- nginx (https 프로토콜 사용)
-- 샤딩, 이중화 아키텍처
 - 리액트(o)
 - 리눅스
 - 자바 
