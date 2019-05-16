@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8">
+
+  <style>
+    .completed {
+      text-decoration: line-through;
+      color: #ddd;
+    }
+  </style>
+
+  <title>Vue Basic</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+      <div id="counterView">
+          <button>Total:{{totalCount}}</button>
+          <button>Complete:{{completeCount}}</button>
+          <button>Incomplete:{{incompleteCount}}</button>
+        </div>
+
+    <div id="controllerView">
+      <select v-model="todoInputContext">
+        <option>HOME</option>
+        <option>OFFICE</option>
+        <option>ETC</option>
+      </select>
+      <input type="text" v-model="todoInputValue" />
+      <button type="button" @click="addTodo">ADD</button>
+    </div>
+
+    <ul>
+      <li v-for="(todo,index) in todos" @click="clicked(todo)" :class="{completed:todo.complete}">
+        <strong>{{todo.context}}</strong>
+        <input type="checkbox" v-model="todo.complete" />
+        {{todo.title}}
+        <delete-button :index="index" @delete-todo="onDeleteTodo"/>
+      </li>
+    </ul>
+
+  </div>
+
+
+
+  <script src="./index.js"></script>
+</body>
+
+</html>
