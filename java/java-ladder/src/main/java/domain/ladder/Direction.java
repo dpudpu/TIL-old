@@ -1,4 +1,4 @@
-package ladder;
+package domain.ladder;
 
 public enum Direction {
     RIGHT(1), LEFT(-1), STRAIGHT(0);
@@ -15,7 +15,6 @@ public enum Direction {
         }
         return STRAIGHT;
     }
-
 
     public int move() {
         return this.direction;

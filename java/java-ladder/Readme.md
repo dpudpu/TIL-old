@@ -2,7 +2,7 @@
 
 ## 목적
 - 레벨1이 끝난 시점에 다시 한번 만들어보기 
-    - 지난 미션 코드 : https://github.com/dpudpu/java-ladder 
+    - 지난 미션 코드 : https://github.com/dpudpu/java-domain.ladder 
 - git 연습 
 - Stream 연습 (for 사용x)
 - TDD 연습
