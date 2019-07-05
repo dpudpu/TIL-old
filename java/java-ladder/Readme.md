@@ -104,6 +104,7 @@ jk : 5000
   - 첫번째 Direction 왼쪽은 false, 마지막 Direction 오른쪽은 false
   - 연속 true면 안 된다.
     - 이 전 Direction이 true면 다음은 무조건 false
+  - +1, 0, 1 로 표시
 - Result
 
 ### generator
