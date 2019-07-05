@@ -1,10 +1,14 @@
-# 사다리 게임
+#  사다리 게임
 
 ## 목적
 - 레벨1이 끝난 시점에 다시 한번 만들어보기 
     - 지난 미션 코드 : https://github.com/dpudpu/java-ladder 
 - git 연습 
 - Stream 연습 (for 사용x)
+- TDD 연습
+- 3시간 안에 끝내기 (설계 외) 
+
+<br>
 
 ## 기능 요구사항
 - 사다리 게임에 참여하는 사람에 이름을 최대5글자까지 부여할 수 있다. 사다리를 출력할 때 사람 이름도 같이 출력한다.
@@ -54,5 +58,56 @@ crong : 꽝
 jk : 5000
 ```
 
+<br>
 
-### 기능 구현 목록
+# 기능 구현 목록
+
+1. 참여할 사람 이름 입력 
+   - 쉼표로 구분한다.
+   - 예외처리
+2. 플레이어 인스턴스 만들기
+3. 보상 입력
+   - 쉼표로 구분한다.
+4. 보상 인스턴스 만들기
+5. 사다리 높이 입력 
+6. 사다리 인스턴스 만들기 
+7. 실행 결과 구하기 
+
+
+
+## 구현할 클래스 
+
+### domain
+
+- Height (사다리의 높이)
+  - [예외처리] 1 이상 
+- Position
+  - [예외처리] 1 이상
+  - previous()
+  - next()
+- Player 
+  - [예외처리] 5자 이하 
+  - [예외처리] 공백  불가 
+  - [예외처리] null 불가
+  - Position, name을 가진다.
+- Players
+  - [예외처리] size 2 이상
+- Rewards
+  - [예외처리] Players의 size와 같다
+  - Map<Position, String> 포지션과 이름을 가진다.
+- Ladder
+  - Height, List<Line>을 상태로 가진다. 
+  - Players, Rewards를 받아서 Result를 생성해준다.
+- Line
+  - width(Players.size)만큼 Direction 생성
+- Direction  (enum)
+  - 첫번째 Direction 왼쪽은 false, 마지막 Direction 오른쪽은 false
+  - 연속 true면 안 된다.
+    - 이 전 Direction이 true면 다음은 무조건 false
+- Result
+
+### generator
+
+- LinesGenerator
+- DirectionsGenerator
+- 
