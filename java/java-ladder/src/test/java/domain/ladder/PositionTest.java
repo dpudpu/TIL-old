@@ -1,5 +1,6 @@
-package domain.player;
+package domain.ladder;
 
+import domain.ladder.Position;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -8,8 +9,8 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PositionTest {
     @Test
-    void 입력_1이하_예외처리() {
-        assertThrows(IllegalArgumentException.class, () -> Position.from(Position.MIN_LENGTH - 1));
+    void 유효범위_이하_예외처리() {
+        assertThrows(IllegalArgumentException.class, () -> Position.from(Position.MIN_RANGE - 1));
     }
 
     @Test

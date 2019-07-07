@@ -1,29 +1,33 @@
-package domain.player;
+package domain.ladder;
 
 import java.util.Objects;
 
 public class Position implements Comparable<Position>{
-    static final int MIN_LENGTH = 1;
+    static final int MIN_RANGE = 0;
 
     private final int position;
 
     private Position(final int position) {
-        validateLength(position);
+        validate(position);
         this.position = position;
+    }
+
+    private void validate(final int position) {
+        if (position < MIN_RANGE) {
+            throw new IllegalArgumentException("포지션은 "+ MIN_RANGE +" 이상");
+        }
     }
 
     public static Position from(final int position) {
         return new Position(position);
     }
 
-    public Position move(final int direction) {
-        return new Position(this.position + direction);
+    public int value() {
+        return position;
     }
 
-    private void validateLength(final int position) {
-        if (position < MIN_LENGTH) {
-            throw new IllegalArgumentException("포지션은 1 이상");
-        }
+    public Position move(final int direction) {
+        return new Position(this.position + direction);
     }
 
     @Override
