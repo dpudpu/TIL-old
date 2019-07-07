@@ -27,7 +27,7 @@ public class RewardsTest {
         Rewards rewards = new Rewards(rewardNames);
 
         Position position = Position.from(2);
-        RewardName actual = new RewardName("2000");
+        Reward actual = new Reward("2000");
         assertEquals(rewards.get(position), actual);
     }
 }

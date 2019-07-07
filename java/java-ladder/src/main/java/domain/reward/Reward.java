@@ -2,19 +2,19 @@ package domain.reward;
 
 import java.util.Objects;
 
-public class RewardName {
+public class Reward {
     private static final int MAX_LENGTH = 5;
 
     private final String name;
 
-    public RewardName(final String name) {
+    public Reward(final String name) {
         validate(name);
         this.name = name;
     }
 
     private void validate(final String name) {
         if (name.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException("RewardName 이름은" + MAX_LENGTH + "글자 이하야 합니다.");
+            throw new IllegalArgumentException("Reward 이름은" + MAX_LENGTH + "글자 이하야 합니다.");
         }
     }
 
@@ -26,7 +26,7 @@ public class RewardName {
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        final RewardName that = (RewardName) o;
+        final Reward that = (Reward) o;
         return Objects.equals(name, that.name);
     }
 

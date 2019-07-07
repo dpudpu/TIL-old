@@ -1,37 +1,40 @@
 package domain.player;
 
-import domain.ladder.Position;
-
 import java.util.Objects;
 
-public class Player implements Comparable<Player>{
-    private final Position position;
-    private final PlayerName name;
+public class Player {
+    private static final int MAX_LENGTH = 5;
 
-    public Player(final int position, final String name) {
-        this.position = Position.from(position);
-        this.name = new PlayerName(name);
+    private final String name;
+
+    public Player(final String name) {
+        validateLength(name);
+        validateEmpty(name);
+        this.name = Objects.requireNonNull(name);
     }
 
-    public Position getPosition() {
-        return position;
+    private void validateEmpty(final String name) {
+        if (name.isEmpty()) {
+            throw new IllegalArgumentException("공백 이름 입력 불가능");
+        }
+    }
+
+    private void validateLength(final String name) {
+        if (name.length() > MAX_LENGTH) {
+            throw new IllegalArgumentException("PlayerNmae 은 " + MAX_LENGTH + "글자 이하야 합니다.");
+        }
     }
 
     public String getName() {
-        return name.getName();
-    }
-
-    @Override
-    public int compareTo(final Player o) {
-        return this.position.compareTo(o.position);
+        return name;
     }
 
     @Override
     public boolean equals(final Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        final Player player = (Player) o;
-        return Objects.equals(name, player.name);
+        final Player that = (Player) o;
+        return Objects.equals(name, that.name);
     }
 
     @Override
