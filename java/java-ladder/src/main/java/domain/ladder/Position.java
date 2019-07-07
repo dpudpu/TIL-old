@@ -2,6 +2,7 @@ package domain.ladder;
 
 import java.util.Objects;
 
+//TODO 캐시
 public class Position implements Comparable<Position>{
     static final int MIN_RANGE = 0;
 
