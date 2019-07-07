@@ -106,9 +106,9 @@ jk : 5000
     - 이 전 Direction이 true면 다음은 무조건 false
   - +1, 0, 1 로 표시
 - Result
+  - Players와 Rewards 사이즈 비교
 
 ### generator
 
-- L
+- LadderFactory
 - DirectionsGenerator
-- 

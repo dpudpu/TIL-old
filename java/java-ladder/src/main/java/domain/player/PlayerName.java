@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class PlayerName {
     private static final int MAX_LENGTH = 5;
+
     private final String name;
 
     public PlayerName(final String name) {
@@ -20,7 +21,7 @@ public class PlayerName {
 
     private void validateLength(final String name) {
         if (name.length() > MAX_LENGTH) {
-            throw new IllegalArgumentException("이름은 " + MAX_LENGTH + "이하야 합니다.");
+            throw new IllegalArgumentException("PlayerNmae 은 " + MAX_LENGTH + "글자 이하야 합니다.");
         }
     }
 

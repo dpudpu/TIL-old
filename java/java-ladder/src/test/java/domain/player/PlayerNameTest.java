@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PlayerNameTest {
     @Test
-    void 이름_5글자_초과() {
+    void 이름_유효범위_초과_예외처리() {
         String name = "123456";
         assertThrows(IllegalArgumentException.class, () -> new PlayerName(name));
     }
