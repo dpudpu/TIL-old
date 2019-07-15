@@ -23,5 +23,6 @@ public class Event {
     private int maxPrice; // (optional)
     private boolean offline;
     private boolean free;
+    private int limitOfEnrollment;
     private EventStatus eventStatus = EventStatus.DRAFT;
 }
