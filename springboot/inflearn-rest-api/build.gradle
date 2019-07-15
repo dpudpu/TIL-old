@@ -35,7 +35,7 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'org.postgresql:postgresql'
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.2'
-    testOnly 'com.h2database:h2'
+    testCompile group: 'com.h2database', name: 'h2', version:'1.4.194'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
 }
