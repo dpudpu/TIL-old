@@ -32,10 +32,11 @@ public class EventController {
 
         eventValidator.validate(eventDto, errors);
         if (errors.hasErrors()) {
-             return ResponseEntity.badRequest().body(errors);
+            return ResponseEntity.badRequest().body(errors);
         }
 
         Event event = modelMapper.map(eventDto, Event.class);
+        event.update(); // 서비스에 위엠해도 되지만 현재는 간단해서 컨트롤러에서 비즈니스 로직 처리
         Event savedEvent = eventRepository.save(event);
         URI uri = linkTo(EventController.class).slash(savedEvent.getId()).toUri();
         return ResponseEntity.created(uri).body(event);
