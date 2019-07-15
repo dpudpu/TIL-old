@@ -1,12 +1,12 @@
 package me.whiteship.inflearnrestapi.events;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.hateoas.MediaTypes;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -17,12 +17,13 @@ import java.time.LocalDateTime;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest // 웹과 관련된 빈만 등록해서 테스트하기 때문에 슬라이스 테스트라고 부르고 속도도 빠르다. 단위 테스트라고 보에는 이미 많은 것이 관련되어 있다.
+@SpringBootTest
+@AutoConfigureMockMvc
+//@WebMvcTest // 웹과 관련된 빈만 등록해서 테스트하기 때문에 슬라이스 테스트라고 부르고 속도도 빠르다. 단위 테스트라고 보에는 이미 많은 것이 관련되어 있다.
+// 목킹할 것이 너무 많아서 슬라이스보단 SpringBootTest로 하는 것이 편하다.
 public class EventControllerTests {
     @Autowired
     MockMvc mockMvc;
@@ -30,12 +31,10 @@ public class EventControllerTests {
     @Autowired
     ObjectMapper objectMapper;
 
-    @MockBean
-    EventRepository eventRepository;
-
     @Test
     public void createEvent() throws Exception {
         Event event = Event.builder()
+                .id(100)
                 .beginEnrollmentDateTime(LocalDateTime.of(2019, 7, 15, 9, 21, 18))
                 .closeEnrollmentDateTime(LocalDateTime.of(2019, 10, 15, 9, 21, 18))
                 .beginEventDateTime(LocalDateTime.of(2019, 10, 15, 9, 21, 18))
@@ -44,9 +43,10 @@ public class EventControllerTests {
                 .maxPrice(200)
                 .limitOfEnrollment(100)
                 .location("강남역")
+                .free(true)
+                .offline(false)
+                .eventStatus(EventStatus.PUBLISHED)
                 .build();
-        event.setId(10);
-        Mockito.when(eventRepository.save(event)).thenReturn(event);
 
         mockMvc.perform(post("/api/events/")
                     .contentType(MediaType.APPLICATION_JSON_UTF8)
@@ -56,8 +56,12 @@ public class EventControllerTests {
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("id").exists())
                 .andExpect(header().exists(HttpHeaders.LOCATION))
-                .andExpect(header().string(HttpHeaders.CONTENT_TYPE, MediaTypes.HAL_JSON_UTF8_VALUE));
+                .andExpect(header().string(HttpHeaders.CONTENT_TYPE, MediaTypes.HAL_JSON_UTF8_VALUE))
+                .andExpect(jsonPath("id").value(Matchers.not(100)))
+                .andExpect(jsonPath("free").value(Matchers.not(true)))
+                .andExpect(jsonPath("eventStatus").value(EventStatus.DRAFT.name()))
+        ;
 
-        // 하나만이 아닌 3개정도는 해야 진정한 TDD
+        // 테스트 케이스를 하나만이 아닌 3개정도는 해야 진정한 TDD
     }
 }

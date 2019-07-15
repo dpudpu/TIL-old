@@ -1,20 +1,14 @@
 package me.whiteship.inflearnrestapi.events;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
 import java.time.LocalDateTime;
 
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode(of = "id")  // 기본적으로 모든 필드를 사용하는데, 엔티티에서 상호 참조하는 관계가 되면 스택오버 플로우가 발생할 수 있어서 id로 한다.
-@Entity
-public class Event {
-    @Id @GeneratedValue
-    private Integer id;
+@Data @Builder @NoArgsConstructor @AllArgsConstructor
+public class EventDto {
     private String name;
     private String description;
     private LocalDateTime beginEnrollmentDateTime;
@@ -25,8 +19,5 @@ public class Event {
     private int basePrice; // (optional) private int maxPrice; // (optional) private int limitOfEnrollment;
     private int maxPrice; // (optional)
     private int limitOfEnrollment;
-    private boolean offline;
-    private boolean free;
-    @Enumerated(value = EnumType.STRING) //Ordinal 이 디폴트인데 순서에 따라서 하므로 나중에 변경되면 꼬임
-    private EventStatus eventStatus = EventStatus.DRAFT;
+
 }
