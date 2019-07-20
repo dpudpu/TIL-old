@@ -1,14 +1,24 @@
 package jpa.exam;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 @Entity
 public class Member {
+
     @Id
     private Long id;
+    @Column
     private String name;
+
+    public Member() {
+    }
+
+    public Member(final Long id, final String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public Long getId() {
         return id;
