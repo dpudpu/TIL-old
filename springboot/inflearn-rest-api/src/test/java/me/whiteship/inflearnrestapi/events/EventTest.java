@@ -38,7 +38,7 @@ public class EventTest {
     @Test
     @Parameters
     public void testFree(int basePrice, int maxPrice, boolean isFree) {
-        //given
+        //given1
         Event event = Event.builder()
                 .basePrice(basePrice)
                 .maxPrice(maxPrice)
