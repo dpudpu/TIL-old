@@ -1,0 +1,20 @@
+jpa:
+  hibernate:
+    ddl-auto: create
+h2:
+  console:
+    enabled: true
+    path: /console
+devtools:
+  livereload:
+    enabled: true
+
+google:
+  client:
+    clientId: 888270116185-a649ve6hvqi5vgsupmpcnmv3vh39b88u.apps.googleusercontent.com
+    clientSecret: akRC_fzOVROF2mbzHdgrSB59
+    accessTokenUri: https://accounts.google.com/o/oauth2/token
+    userAuthorizationUri: https://accounts.google.com/o/oauth2/auth
+    scope: email, profile
+  resource:
+    userInfoUri: https://www.googleapis.com/oauth2/v2/userinfo
