@@ -30,7 +30,7 @@ TabView.bindClick = function () {
 
 TabView.onClick = function (tabName) {
     this.setActiveTab(tabName)
-    this.emit('@change', tabName)
+    this.emit('@change', {tabName})
 }
 
 export default TabView

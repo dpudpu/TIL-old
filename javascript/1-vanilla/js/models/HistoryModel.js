@@ -10,6 +10,7 @@ export default {
     },
 
     add(keyword = '') {
+        console.log('add()',keyword)
         keyword = keyword.trim()
         if (!keyword) return
         if (this.data.some(item => item.keyword === keyword)) {
