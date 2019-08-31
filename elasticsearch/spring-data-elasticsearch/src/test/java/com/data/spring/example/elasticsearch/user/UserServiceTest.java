@@ -13,12 +13,7 @@ public class UserServiceTest {
 
     @Test
     public void findByName() {
-        User user = new User();
-        user.setName("name");
-
-        User savedUser = userService.save(user);
-
-        System.out.println(savedUser);
+        System.out.println(userService.testMe());
     }
 
     @Test
