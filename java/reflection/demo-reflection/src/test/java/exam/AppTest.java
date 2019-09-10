@@ -3,8 +3,7 @@ package exam;
 import org.junit.jupiter.api.Test;
 
 import java.lang.annotation.Annotation;
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 import java.util.Arrays;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -74,7 +73,7 @@ class AppTest {
     void 접근제어자_확인() {
         Field[] declaredFields = bookClass.getDeclaredFields();
 
-        Arrays.stream(declaredFields).forEach(f->{
+        Arrays.stream(declaredFields).forEach(f -> {
             int modifiers = f.getModifiers();
             System.out.println(f);
             System.out.println(modifiers);
@@ -90,5 +89,28 @@ class AppTest {
 
         assertThat(annotations).hasSize(1);
         assertThat(annotations[0] instanceof MyAnnotation).isTrue();
+    }
+
+    @Test
+    void 클래스_필드_정보_수정() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException {
+        Constructor<Book> constructor = bookClass.getConstructor();
+        Book book = (Book) constructor.newInstance();
+        Field b = book.getClass().getDeclaredField("B");
+        String changedField = "AAAAAAAAAAAA";
+
+        b.setAccessible(true);
+        b.set(null, changedField);
+
+        assertThat(b.get(null)).isEqualTo(changedField);
+    }
+
+    @Test
+    void 클래스_메소드_정보_수정() throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException {
+        Constructor<Book> constructor = bookClass.getConstructor();
+        Book book = (Book) constructor.newInstance();
+
+        Method method = Book.class.getDeclaredMethod("sum", int.class, int.class);
+        int invoke = (int) method.invoke(book, 1, 2);
+        System.out.println(invoke);
     }
 }

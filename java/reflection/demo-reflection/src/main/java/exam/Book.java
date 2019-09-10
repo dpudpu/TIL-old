@@ -17,15 +17,19 @@ public class Book {
     public Book() {
     }
 
-    private void f(){
+    private void f() {
         System.out.println("F");
     }
 
-    public void g(){
+    public void g() {
         System.out.println("G");
     }
 
-    public int h(){
+    public int h() {
         return 100;
+    }
+
+    public int sum(int a, int b) {
+        return a + b;
     }
 }
