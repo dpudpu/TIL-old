@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+}
+
+group 'exam.my'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    ///Users/daejun/Desktop/development/TIL/java/reflection/di-project/libs/di-framework-1.0.jar
+    implementation files('libs/di-framework-1.0.jar')
+    testCompile('org.junit.jupiter:junit-jupiter:5.4.2')
+    testCompile('org.assertj:assertj-core:3.11.1')
+}

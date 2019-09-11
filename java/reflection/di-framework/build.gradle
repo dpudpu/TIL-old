@@ -1,0 +1,17 @@
+plugins {
+    id 'java'
+}
+apply plugin: "maven"
+group 'com.exam.di'
+version '1.0'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile('org.junit.jupiter:junit-jupiter:5.4.2')
+    testCompile('org.assertj:assertj-core:3.11.1')
+}
