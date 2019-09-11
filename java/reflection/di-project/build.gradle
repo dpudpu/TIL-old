@@ -12,7 +12,6 @@ repositories {
 }
 
 dependencies {
-    ///Users/daejun/Desktop/development/TIL/java/reflection/di-project/libs/di-framework-1.0.jar
     implementation files('libs/di-framework-1.0.jar')
     testCompile('org.junit.jupiter:junit-jupiter:5.4.2')
     testCompile('org.assertj:assertj-core:3.11.1')
