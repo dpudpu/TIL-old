@@ -1,0 +1,23 @@
+--reporter=plain
+--color
+--reporter=plain,output=/Users/dpudpu/dev/personal/TIL/Kotlin/kotlin-exam/build/reports/ktlint/ktlintMainSourceSetCheck.txt
+src/main/kotlin/exam/ConstructorsExam01.kt
+src/main/kotlin/exam/ConstructorsExam02.kt
+src/main/kotlin/exam/ConstructorsExam03.kt
+src/main/kotlin/exam/ForLoop01.kt
+src/main/kotlin/exam/InheritanceExam01.kt
+src/main/kotlin/exam/LateInitExam.kt
+src/main/kotlin/exam/PropertyExam01.kt
+src/main/kotlin/exam/PropertyExam02.kt
+src/main/kotlin/exam/StringAsObjects01.kt
+src/main/kotlin/exam/StringTemplates01.kt
+src/main/kotlin/exam/StringTemplates02.kt
+src/main/kotlin/exam/StringTemplates03.kt
+src/main/kotlin/exam/delegate/LateInit.kt
+src/main/kotlin/exam/delegate/Lazy.kt
+src/main/kotlin/exam/delegate/Observable.kt
+src/main/kotlin/exam/delegate/Storing Properties in a Map.kt
+src/main/kotlin/exam/delegate/Vetoable.kt
+src/main/kotlin/exam/function/FuctionExam01.kt
+src/main/kotlin/exam/function/InfixNotation.kt
+src/main/kotlin/exam/function/TailrecExam.kt

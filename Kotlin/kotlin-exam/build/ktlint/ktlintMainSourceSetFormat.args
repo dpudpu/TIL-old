@@ -1,0 +1,10 @@
+--reporter=plain
+--color
+--reporter=plain,output=/Users/dpudpu/dev/personal/TIL/Kotlin/kotlin-exam/build/reports/ktlint/ktlintMainSourceSetFormat.txt
+src/main/kotlin/exam/ConstructorsExam01.kt
+src/main/kotlin/exam/ConstructorsExam03.kt
+src/main/kotlin/exam/PropertyExam01.kt
+src/main/kotlin/exam/StringTemplates03.kt
+src/main/kotlin/exam/function/FuctionExam01.kt
+src/main/kotlin/exam/function/InfixNotation.kt
+-F
