@@ -4,27 +4,22 @@ import TodoInsert from './components/TodoInsert';
 import TodoList from './components/TodoList';
 
 export default function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '리액트 기초',
-      checked: true,
-    },
-    {
-      id: 2,
-      text: '리액트 기초',
-      checked: true,
-    },
-    {
-      id: 3,
-      text: '리액트 기초',
-      checked: false,
-    },
-  ]);
+  function createBulkTodos() {
+    const array = [];
+    for (let i = 1; i <= 2500; i++) {
+      array.push({
+        id: i,
+        text: `할 일 ${i}`,
+        checked: false,
+      });
+    }
+    return array;
+  }
+  const [todos, setTodos] = useState(createBulkTodos);
 
   const nextId = useRef(4);
 
-  const onInsert = useCallback(
+  const onInsert = useCallback(todos =>
     text => {
       const todo = {
         id: nextId.current,
@@ -34,31 +29,31 @@ export default function App() {
       setTodos(todos.concat(todo));
       nextId.current += 1;
     },
-    [todos],
+    [],
   );
 
-  const onRemove = useCallback(
+  const onRemove = useCallback(todos =>
     id => {
       setTodos(todos.filter(todo => todo.id !== id));
     },
-    [todos],
+    [],
   );
 
   const onToggle = useCallback(
     id => {
-      setTodos(
+      setTodos( todos =>
         todos.map(todo =>
           todo.id === id ? { ...todo, checked: !todo.checked } : todo,
         ),
       );
     },
-    [todos],
+    [],
   );
 
   return (
     <TodoTemplate>
       <TodoInsert onInsert={onInsert} />
-      <TodoList todos={todos} onRemove={onRemove} onToggle = {onToggle}/>
+      <TodoList todos={todos} onRemove={onRemove} onToggle={onToggle} />
     </TodoTemplate>
   );
 }
